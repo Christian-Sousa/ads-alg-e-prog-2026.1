@@ -1,1 +1,1 @@
-# ads-alg-e-prog-2026.1
+# ads-alg-e-prog-2026.1 é um repositorio dedicado para atividades e trabalhos acadêmicos
