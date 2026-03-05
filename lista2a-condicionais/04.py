@@ -1,6 +1,5 @@
-def obter_numeros():
-    numero = int(input("Digite o 1º valor de dois dígitos: "))
-    return numero
+def obter_numeros(numero):
+    return int(input(numero))
 
 def verificar_digitos(a):
     dezena = a//10
@@ -12,7 +11,7 @@ def verificar_digitos(a):
     return print()
 
 def main():
-    n1=obter_numeros()
+    n1=obter_numeros("Digite o 1º valor de dois dígitos: ")
     return verificar_digitos(n1)
 
 main()

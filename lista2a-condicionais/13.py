@@ -1,4 +1,4 @@
-def obter_numeros():
+def obter_numero():
     primeiro = int(input("Digite o 1º valor: "))
     segundo = int(input("Digite o 2º valor: "))
     terceiro = int(input("Digite o 3º valor: "))
@@ -32,8 +32,11 @@ def verificar_maior(a, b, c, d, e):
     return maior, menor
 
 def main():
-    n1, n2, n3, n4, n5=obter_numeros()
-    maior, menor =  verificar_maior(n1, n2, n3, n4, n5)
-    print(f"> O menor valor é {menor} e o maior valor é {maior}.")
+    n1, n2, n3, n4, n5=obter_numero()
+    if n1==n2 or n2==n3 or n3==n4 or n4==n5 or n1==n3 or n2==n4 or n5==n1 or n5==n2 or n5==n3 or n1==n4:
+        print("DIGITE VALORES DIFERENTES!!")
+    else:
+        maior, menor =  verificar_maior(n1, n2, n3, n4, n5)
+        print(f"> O menor valor é {menor} e o maior valor é {maior}.")
 
 main()
