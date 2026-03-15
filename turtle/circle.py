@@ -2,7 +2,7 @@ import turtle, math
 
 def circle(t, r):
     circumference = 2 * math.pi * r
-    n = 500
+    n = 100
     length = circumference / n
     polygon(t, n, length)
 
@@ -13,6 +13,6 @@ def polygon(t, n, length):
 
 def main():
     bob = turtle.Turtle()
-    circle(bob, 500)
+    circle(bob, 100)
 
 main()

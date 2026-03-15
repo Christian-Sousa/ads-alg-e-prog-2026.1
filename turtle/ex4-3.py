@@ -1,38 +1,39 @@
 import turtle
 import math
 
-def isosceles(t, r, angle):
-    base_angle = (180 - angle) / 2
-    base = 2 * r * math.sin(math.radians(angle) / 2)
+def isosceles(t, r, angulo):
+    base_angulo = (180 - angulo) / 2
+    base = 2 * r * math.sin(math.radians(angulo) / 2)
     t.forward(r)
-    t.left(180 - base_angle)
+    t.left(180 - base_angulo)
     t.forward(base)
-    t.left(180 - base_angle)
+    t.left(180 - base_angulo)
     t.forward(r)
-    t.left(180)
+    t.left(180 + angulo)
 
-def pie(t, n, r):
-    angle = 360 / n
+def poligono(t, n, r):
+    angulo = 360 / n
     for i in range(n):
-        isosceles(t, r, angle)
-        t.left(angle)
+        isosceles(t, r, angulo)
 
-def move_turtle(t, distance):
+def move_turtle(t, distancia):
     t.penup()
-    t.forward(distance)
+    t.forward(distancia)
     t.pendown()
     
-bob = turtle.Turtle()
-bob.speed(1)
+def main():
+    bob = turtle.Turtle()
+    bob.speed(3)
 
-pie(bob, 5, 60)
-move_turtle(bob, 150)
+    poligono(bob, 5, 60)
+    move_turtle(bob, 150)
 
-pie(bob, 6, 60)
-bob.left(60)
+    poligono(bob, 6, 60)
+    bob.left(60)
+    poligono(bob, 6, 60)
+    move_turtle(bob, 150)
 
-pie(bob, 6, 60)
-move_turtle(bob, 150)
+    poligono(bob, 7, 60)
+    turtle.mainloop()
 
-pie(bob, 7, 60)
-turtle.mainloop()
+main()

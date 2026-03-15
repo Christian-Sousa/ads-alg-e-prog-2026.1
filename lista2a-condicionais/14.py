@@ -3,7 +3,7 @@ def obter_numero():
     segundo = int(input("Digite o 2º valor: "))
     terceiro = int(input("Digite o 3º valor: "))
     quarto = int(input("Digite o 4º valor: "))
-    quinto = int(input("Digite o 5º valor: "))
+    quinto = 1
     return primeiro, segundo, terceiro, quarto, quinto
 
 def calcular_media(a, b, c, d, e):
