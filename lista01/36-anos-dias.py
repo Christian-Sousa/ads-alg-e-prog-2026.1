@@ -1,5 +1,0 @@
-anos = int(input("Anos: "))
-meses = int(input("Meses: "))
-dias = int(input("dias: "))
-dias_total = dias + (anos*365) + (meses*30)
-print(f" > Você tem {dias_total} dias de vida. Parabens! :D")
