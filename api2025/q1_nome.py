@@ -1,4 +1,8 @@
+from utils_io import limpar_tela
+
 def main():
+    limpar_tela()
+    
     tamanho_nome = len(input('Nome: '))
     
     if tamanho_nome%2!=0:

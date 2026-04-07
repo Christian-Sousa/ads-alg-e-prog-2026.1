@@ -1,6 +1,10 @@
 import math
+from utils_io import limpar_tela
+
 
 def primo(n):
+    limpar_tela()
+
     if n < 2:
         return False
     limite = int(math.sqrt(n))
@@ -9,13 +13,13 @@ def primo(n):
             return False        
     return True
 
-limite_inferior = int(input("Insira o limite inferior: "))
-limite_superior = int(input("Insira o limite superior: "))
+n_inicial = int(input("Digite o valor de N: "))
+m_final = int(input("Digite o valor de M: "))
 
-print(f"Números primos entre {limite_inferior} e {limite_superior}:")
+print(f"Números primos entre {n_inicial} e {m_final}:")
 
-inicio = min(limite_inferior, limite_superior)
-fim = max(limite_inferior, limite_superior)
+inicio = min(n_inicial, m_final)
+fim = max(n_inicial, m_final)
 
 for num in range(inicio, fim + 1):
     if primo(num):
