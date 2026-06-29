@@ -1,0 +1,6 @@
+1;Brasil;CONMEBOL;C;5;5
+2;Argentina;CONMEBOL;C;1;3
+3;França;UEFA;A;2;2
+4;Japão;AFC;A;17;0
+5;Cabo-Verde;CAF;H;64;0
+6;Portugal;UEFA;K;8;0
