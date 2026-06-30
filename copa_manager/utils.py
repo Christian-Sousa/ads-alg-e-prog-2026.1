@@ -6,8 +6,13 @@ def limpar_tela():
          os.system('clear')
 
 def sucesso():
-    print()
-    print('GOOOOOOL!')
+    print('\n⚽GOOOOOOOOOOL!⚽\n')
+
+def existencia_id(lista, atributo):
+    for item in lista:
+        if atributo == item['id']:
+            return True
+    return False
 
 # Ordenacao
 def ordenar_dicionarios(lista, atributo, eh_decrescente):
@@ -46,17 +51,29 @@ def buscar_nome(lista, termo):
                 encontrados.append(item)
     return encontrados
 
+def listar_por_id(lista):
+    for item in lista:
+        id = item['id']
+        nome = item['nome']
+        print(id,' - ', nome)
+        
+def exibir_nome_por_id(lista, id_correspondente):
+    for item in lista:
+        if item['id'] == id_correspondente:
+            return item['nome']
+    return None
+
 # Reduce
 def status_copa(selecoes, jogadores, partidas):
     qtd_selecoes = 0
     qtd_jogadores = 0
     qtd_partidas = 0
 
-    for i in selecoes:
+    for s in selecoes:
         qtd_selecoes+=1
     for j in jogadores:
         qtd_jogadores+=1
-    for k in partidas:
+    for p in partidas:
         qtd_partidas+=1
     return qtd_selecoes, qtd_jogadores, qtd_partidas
 
@@ -68,23 +85,3 @@ def gerar_id(lista, primeiro_id):
         if item["id"] > maior_id:
             maior_id = item["id"]
     return maior_id + 1
-
-
-def existencia_id(lista, atributo):
-    for item in lista:
-        if atributo == item['id']:
-            return True
-    return False
-       
-def listar_por_id(lista):
-    for item in lista:
-        id = item['id']
-        nome = item['nome']
-        print(id,' - ', nome)
-
-def exibir_nome_por_id(lista, id_correspondente):
-    for item in lista:
-        if item['id'] == id_correspondente:
-            return item['nome']
-    return None
-        

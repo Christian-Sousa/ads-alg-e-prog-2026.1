@@ -1,5 +1,7 @@
 from utils import gerar_id
 from persistencia import carregar_selecoes
+#from jogadores import carregar_jogadores               <- NAO É POSSIVEL IMPORTAR DE JOGADORES!
+#jogadores = carregar_jogadores('jogadores.txt')
 
 selecoes = carregar_selecoes('selecoes.txt')
 
@@ -18,11 +20,17 @@ def cadastrar_nova_selecao():
          'titulos': titulos,
         }
     return nova_selecao
-
-def obter_nome_selecoes(selecoes,selecao_id):
+#Fliter
+def obter_nome_selecoes_por_id(selecoes, selecao_id):
     for selecao in selecoes:
         if selecao['id'] == selecao_id:
             return selecao['nome']
+    return None
+#Filter
+def obter_id_selecoes_por_nome(selecoes, selecao_nome):
+    for selecao in selecoes:
+        if selecao['nome'].lower() == selecao_nome.lower():
+            return selecao['id']
     return None
 
 def exibir_selecoes(selecoes):
@@ -34,6 +42,6 @@ def exibir_selecoes(selecoes):
             f"Confederação: {selecao['confederacao']}\n"
             f"Grupo: {selecao['grupo']}\n"
             f"Ranking FIFA: {selecao['ranking_fifa']}\n"
-            f"Títulos: {selecao['   ']}\n"
+            f"Títulos: {selecao['titulos']}\n"
             f"{'-'*70}"
         )

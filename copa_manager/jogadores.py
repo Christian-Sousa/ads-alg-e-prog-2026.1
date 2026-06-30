@@ -1,6 +1,6 @@
 from utils import gerar_id
 from persistencia import carregar_selecoes,carregar_jogadores
-from selecoes import obter_nome_selecoes
+from selecoes import obter_nome_selecoes_por_id
 
 jogadores = carregar_jogadores('jogadores.txt')
 selecoes = carregar_selecoes('selecoes.txt')
@@ -20,15 +20,12 @@ def cadastrar_novo_jodador(id_selecao_fk):
         }
     return nome, novo_jogador
 
-def listar_jogadores(jogadores, selecoes, criterio, decrescente=False):
-    jogadores_ordenados = sorted(jogadores, key=lambda jogador: jogador[criterio], reverse=decrescente)
-    return jogadores_ordenados
-
+#Filter
 def filtrar_jogadores(jogadores, selecoes, posicao=None, idade_min=None, idade_max=None, parte_nome_selecao=None):
     filtrados = []
 
     for jogador in jogadores:
-        nome_selecao = obter_nome_selecoes(selecoes, jogador['selecao_id'])
+        nome_selecao = obter_nome_selecoes_por_id(selecoes, jogador['selecao_id'])
 
         if posicao is not None:
             if jogador['posicao'].lower() != posicao.lower():
@@ -54,12 +51,47 @@ def exibir_jogadores(jogadores, selecoes):
     print('\nLISTA DE JOGADORES')
     print('-' * 70)
     for jogador in jogadores:
-        nome_selecao = obter_nome_selecoes(selecoes, jogador['selecao_id'])
+        nome_selecao = obter_nome_selecoes_por_id(selecoes, jogador['selecao_id'])
 
         print(
             f"Nome: {jogador['nome']}\n"
             f"Seleção: {nome_selecao}\n"
             f"Idade: {jogador['idade']}\n"
+            f"Posição: {jogador['posicao']}\n"
             f"Gols: {jogador['gols']}\n"
             f"{'-'*70}"
         )
+
+#Filter
+def encontrar_artilheiro(jogadores):
+    maior_gols = 0
+    maior_jogador = ''
+    for j in jogadores:
+        if j['gols'] > maior_gols:
+            maior_gols = j['gols']
+            maior_jogador = j['nome']
+    return maior_jogador, maior_gols
+
+#Filter
+def buscar_jogadores_por_selecao_id(jogadores, selecao_id):
+    jogadores_selecao=[]
+    for j in jogadores:
+        if j['selecao_id'] == selecao_id:
+            jogadores_selecao.append(j)
+    return jogadores_selecao
+
+#Reduce
+def total_gols_selecao(jogadores):
+    contador_gols = 0
+    for j in jogadores:
+        contador_gols+=j['gols']
+    return contador_gols
+
+#Reduce
+def media_idade_jogadores_selecao(jogadores):
+    qtd = len(jogadores)
+    soma = 0
+    for j in jogadores:
+        soma+=j['idade']
+    media = soma/qtd
+    return media
